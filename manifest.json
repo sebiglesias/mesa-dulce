@@ -1,0 +1,16 @@
+{
+  "name": "Calculadora de Mesa Dulce y Torta por Persona | Cumplea\u00f1os y Fiestas",
+  "short_name": "Mesa Dulce",
+  "start_url": "https://sebiglesias.com.ar/mesa-dulce/",
+  "display": "standalone",
+  "background_color": "#0b0709",
+  "theme_color": "#ec4899",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

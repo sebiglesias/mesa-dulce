@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Google tag (gtag.js) GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2BNDBQP0W7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2BNDBQP0W7');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Mesa Dulce y Torta por Persona | Cumpleaños y Fiestas</title>
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ec4899">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <meta name="description" content="Calculá cuántos kilos de torta y bocaditos dulces por persona necesitás para tu fiesta o cumpleaños. Mini postres, shots, masas y alfajorcitos exactos.">
+  <meta name="keywords" content="calculadora de mesa dulce, gramos de torta por persona, cuantos kilos de torta para 30 personas, shots dulces por persona, mini postres para fiesta, mesa dulce 50 personas">
+  <link rel="canonical" href="https://sebiglesias.com.ar/mesa-dulce/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Calculadora de Mesa Dulce y Torta por Persona">
+  <meta property="og:description" content="Calculá kilos de torta, mini postres, shots y bocados dulces para tu fiesta o evento.">
+  <meta property="og:url" content="https://sebiglesias.com.ar/mesa-dulce/">
+  <meta property="og:site_name" content="Calculadora de Mesa Dulce">
+  <meta property="og:locale" content="es_AR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Calculadora de Mesa Dulce y Torta para Fiestas">
+  <meta name="twitter:description" content="Calculá kilos de torta y porciones de mesa dulce para cumpleaños y casamientos.">
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-3381238987477190">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381238987477190" crossorigin="anonymous"></script>
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "Calculadora de Mesa Dulce y Tortas",
+        "url": "https://sebiglesias.com.ar/mesa-dulce/",
+        "description": "Calculadora de porciones de torta, bocaditos dulces y shots para eventos.",
+        "applicationCategory": "FoodApplication",
+        "operatingSystem": "Any",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "ARS" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuántos gramos de torta se calculan por persona en un cumpleaños?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si la torta es el único postre del festejo, se calculan entre 120 y 150 gramos por persona. Si además hay mesa dulce con shots y mini tartas, con 100 gramos de torta por persona es suficiente para que nadie se quede con ganas ni sobre media torta."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuántos bocaditos dulces o shots se calculan por persona?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En una fiesta con torta principal, se calculan entre 2 y 3 bocaditos dulces o mini postres por invitado (por ejemplo: 1 shot tipo cheesecake o lemon pie, más 1 alfajorcito de maicena o masita fina)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0b0709;
+      --surface: #171015;
+      --surface-raised: #231820;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #ec4899;
+      --accent-muted: rgba(236, 72, 153, 0.14);
+      --accent-border: rgba(236, 72, 153, 0.35);
+      --teal: #06b6d4;
+      --radius-sm: 6px;
+      --radius: 10px;
+      --radius-lg: 14px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      background-image: radial-gradient(ellipse 90% 40% at 50% 0%, rgba(236, 72, 153, 0.15) 0%, transparent 80%),
+                        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255, 255, 255, 0.015) 39px, rgba(255, 255, 255, 0.015) 40px);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container { width: 100%; max-width: 720px; margin: 0 auto; padding: 24px 16px 48px; }
+    .app-header { margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+    .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+    .tag { font-family: var(--font-mono); font-size: 11px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 3px 8px; border-radius: var(--radius-sm); background: var(--surface-raised); color: var(--text-muted); border: 1px solid var(--border); }
+    .tag.tag-accent { background: var(--accent-muted); color: var(--accent); border-color: var(--accent-border); }
+    h1 { font-size: clamp(20px, 4vw, 26px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; color: var(--text); }
+    .subtitle { color: var(--text-muted); font-size: 14px; line-height: 1.45; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; margin-bottom: 16px; }
+    .card-title { font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; }
+    .form-group { margin-bottom: 14px; }
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .helper-text { font-size: 11px; color: var(--text-dim); margin-top: 4px; }
+    select { width: 100%; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 9px 12px; font-family: var(--font-sans); font-size: 14px; color: var(--text); outline: none; }
+    .segmented-control { display: flex; background: var(--surface-raised); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 2px; gap: 2px; }
+    .segmented-btn { flex: 1; background: transparent; border: none; border-radius: 4px; padding: 7px 10px; font-size: 12px; font-weight: 600; color: var(--text-muted); cursor: pointer; transition: all 0.15s; }
+    .segmented-btn.active { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 500px) { .input-row { grid-template-columns: 1fr; } }
+    .stepper-wrap { display: flex; align-items: center; gap: 10px; }
+    .stepper-btn { width: 36px; height: 36px; background: var(--surface-raised); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); color: var(--text); font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .stepper-val { font-family: var(--font-mono); font-size: 16px; font-weight: 700; min-width: 40px; text-align: center; }
+    .hero-result { background: linear-gradient(135deg, var(--surface-raised) 0%, var(--surface) 100%); border: 1px solid var(--accent-border); border-radius: var(--radius-lg); padding: 24px 20px; margin-bottom: 16px; text-align: center; }
+    .hero-label { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-muted); margin-bottom: 6px; }
+    .hero-amount { font-family: var(--font-mono); font-size: clamp(34px, 7vw, 46px); font-weight: 800; color: var(--accent); letter-spacing: -0.02em; margin-bottom: 16px; }
+    .hero-subrow { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; border-top: 1px solid var(--border); padding-top: 16px; }
+    .hero-sublabel { font-size: 11px; color: var(--text-dim); text-transform: uppercase; margin-bottom: 4px; }
+    .hero-subval { font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: var(--text); }
+    .hero-subval.highlight { color: var(--teal); }
+    .breakdown-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .breakdown-table tr { border-bottom: 1px solid var(--border); }
+    .breakdown-table tr:last-child { border-bottom: none; }
+    .breakdown-table td { padding: 10px 0; }
+    .col-label { color: var(--text); font-weight: 500; }
+    .col-sub { display: block; font-size: 11px; color: var(--text-dim); }
+    .col-val { font-family: var(--font-mono); text-align: right; font-weight: 600; color: var(--text); }
+    .btn-action { width: 100%; background: #25d366; color: #0b2212; border: none; border-radius: var(--radius-sm); padding: 12px; font-size: 14px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; }
+    .seo-table-wrap { overflow-x: auto; margin-top: 12px; }
+    .seo-table { width: 100%; border-collapse: collapse; font-size: 12px; text-align: left; }
+    .seo-table th { background: var(--surface-raised); color: var(--text-muted); padding: 8px 10px; font-weight: 600; border-bottom: 1px solid var(--border-strong); }
+    .seo-table td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--text); font-family: var(--font-mono); }
+    .seo-table td.strong { font-family: var(--font-sans); font-weight: 600; }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+    .faq-item { border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .faq-a { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+    .family-nav { margin: 28px auto 16px; padding: 16px 0; border-top: 1px solid var(--border); text-align: left; }
+    .family-title { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); font-weight: 700; margin-bottom: 10px; }
+    .family-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .family-link { padding: 5px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; text-decoration: none; color: var(--text-muted); background: var(--surface-raised); border: 1px solid var(--border); }
+    .family-link.active { background: var(--accent-muted); border-color: var(--accent); color: var(--accent); font-weight: 700; }
+    footer { margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); text-align: center; font-size: 12px; color: var(--text-dim); }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <div class="badge-row">
+        <span class="tag tag-accent">Repostería &amp; Eventos</span>
+        <span class="tag">Postres &amp; Cumpleaños</span>
+      </div>
+      <h1>Calculadora de Mesa Dulce &amp; Tortas</h1>
+      <p class="subtitle">Calculá los kilos exactos de torta, cantidad de shots dulces, mini tartaletas y bocados secos para no quedarte corto ni tirar comida.</p>
+    </header>
+
+    <!-- Parámetros del Evento -->
+    <section class="card">
+      <div class="card-title">Invitados &amp; Estilo de Evento</div>
+      
+      <div class="input-row">
+        <div class="form-group">
+          <label>Adultos</label>
+          <div class="stepper-wrap">
+            <button type="button" class="stepper-btn" onclick="stepVal('adults', -1)">−</button>
+            <div class="stepper-val" id="adultsVal">30</div>
+            <button type="button" class="stepper-btn" onclick="stepVal('adults', 1)">+</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Niños</label>
+          <div class="stepper-wrap">
+            <button type="button" class="stepper-btn" onclick="stepVal('kids', -1)">−</button>
+            <div class="stepper-val" id="kidsVal">10</div>
+            <button type="button" class="stepper-btn" onclick="stepVal('kids', 1)">+</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 16px;">
+        <label>Formato de Mesa Dulce</label>
+        <div class="segmented-control">
+          <button type="button" class="segmented-btn active" id="btnFull" onclick="setType('full')">Torta + Mesa Dulce Variada</button>
+          <button type="button" class="segmented-btn" id="btnOnlyCake" onclick="setType('only_cake')">Solo Torta Principal</button>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 14px;">
+        <label for="eventType">Tipo de Festejo</label>
+        <select id="eventType" onchange="calc()">
+          <option value="cumple_adulto" selected>Cumpleaños Adulto / Despedida (buen consumo)</option>
+          <option value="cumple_infantil">Cumpleaños Infantil (prioridad torta y alfajores)</option>
+          <option value="casamiento_15">Fiesta de 15 / Boda (shots y mini pastelería)</option>
+        </select>
+      </div>
+    </section>
+
+    <!-- Hero Result -->
+    <section class="hero-result">
+      <div class="hero-label">Torta Principal Recomendada</div>
+      <div class="hero-amount" id="cakeHero">3.5 kg</div>
+      <div class="hero-subrow">
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Mini Postres &amp; Shots</div>
+          <div class="hero-subval highlight" id="shotsHero">70 unidades</div>
+        </div>
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Alfajorcitos / Masas</div>
+          <div class="hero-subval" id="alfajoresHero">55 unidades</div>
+        </div>
+        <div class="hero-subitem">
+          <div class="hero-sublabel">Porciones Totales</div>
+          <div class="hero-subval" id="porcionesHero">35 porciones</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desglose de Pastelería -->
+    <section class="card">
+      <div class="card-title">Resumen para Encargar en Pastelería</div>
+      <table class="breakdown-table">
+        <tbody>
+          <tr>
+            <td class="col-label">
+              Torta Principal de Cumpleaños
+              <span class="col-sub">100g por comensal (con mesa dulce) o 150g (sola)</span>
+            </td>
+            <td class="col-val" id="rowCake">3.5 kg</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Shots &amp; Mini Tartas Individuales
+              <span class="col-sub">Chocotorta, Lemon pie, Cheesecake, Frutilla</span>
+            </td>
+            <td class="col-val" id="rowShots">70 shots (6 docenas)</td>
+          </tr>
+          <tr>
+            <td class="col-label">
+              Bocados Secos &amp; Alfajorcitos
+              <span class="col-sub">Alfajorcitos de maicena, conitos, trufas</span>
+            </td>
+            <td class="col-val" id="rowAlfajores">55 u (4.5 docenas)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <button type="button" class="btn-action" onclick="copyWhatsApp()">
+        📋 Copiar Pedido para Pastelería por WhatsApp
+      </button>
+    </section>
+
+    <!-- Tabla Rápida -->
+    <section class="card">
+      <div class="card-title">📊 Kilos de Torta según Cantidad de Invitados</div>
+      <div class="seo-table-wrap">
+        <table class="seo-table">
+          <thead>
+            <tr>
+              <th>Invitados</th>
+              <th>Con Mesa Dulce</th>
+              <th>Solo Torta</th>
+              <th>Shots / Mini Tartas</th>
+              <th>Alfajorcitos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="strong">15 personas</td><td>1.5 kg</td><td>2.2 kg</td><td>30 u</td><td>25 u</td></tr>
+            <tr><td class="strong">25 personas</td><td>2.5 kg</td><td>3.5 kg</td><td>50 u</td><td>40 u</td></tr>
+            <tr><td class="strong">35 personas</td><td>3.5 kg</td><td>5.0 kg</td><td>70 u</td><td>55 u</td></tr>
+            <tr><td class="strong">50 personas</td><td>5.0 kg</td><td>7.5 kg</td><td>100 u</td><td>80 u</td></tr>
+            <tr><td class="strong">80 personas</td><td>8.0 kg (2 pisos)</td><td>11.5 kg</td><td>160 u</td><td>130 u</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- In-Page Responsive AdSense Slot -->
+    <div class="ad-slot-container">
+      <div style="font-size: 0.7rem; color: #888; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px;">Publicidad</div>
+      <ins class="adsbygoogle"
+           style="display:block; width: 100%;"
+           data-ad-client="ca-pub-3381238987477190"
+           data-ad-slot="9270280155"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- FAQ SEO -->
+    <section class="card">
+      <div class="card-title">❓ Preguntas Frecuentes sobre Mesa Dulce</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">¿Cuántos tipos de tortas o tartas conviene tener?</div>
+          <div class="faq-a">Para hasta 30 personas, alcanza con la torta principal más 2 variedades de mini postres (ej: algo con chocolate y algo frutal/ácido como lemon pie). Para 50 o más invitados, sumá una tercera opción con dulce de leche o frutos secos.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Family Interlinking Nav -->
+    <nav class="family-nav">
+      <span class="family-title">🍰 Herramientas para Fiestas &amp; Eventos</span>
+      <div class="family-links">
+        <span class="family-link active">🍰 Mesa Dulce &amp; Tortas</span>
+        <a href="https://sebiglesias.com.ar/bebidas-fiesta/" class="family-link">🍻 Bebidas &amp; Hielo</a>
+        <a href="https://sebiglesias.com.ar/pata-flambeada/" class="family-link">🍖 Pata Flambeada</a>
+        <a href="https://sebiglesias.com.ar/hamburguesas/" class="family-link">🍔 Hamburguesas</a>
+        <a href="https://sebiglesias.com.ar/empanadin/" class="family-link">🥟 Empanadín</a>
+        <a href="https://sebiglesias.com.ar/asadin/" class="family-link">🥩 Asadín</a>
+      </div>
+    </nav>
+
+    <footer>
+      <p><a href="https://sebiglesias.com.ar/">← sebiglesias.com.ar</a> · Calculadoras de repostería y eventos</p>
+    </footer>
+  </div>
+
+  <script>
+    let state = { adults: 30, kids: 10, mode: 'full' };
+
+    function stepVal(key, delta) {
+      state[key] = Math.max(0, state[key] + delta);
+      document.getElementById(key + 'Val').innerText = state[key];
+      calc();
+    }
+
+    function setType(m) {
+      state.mode = m;
+      document.getElementById('btnFull').classList.toggle('active', m === 'full');
+      document.getElementById('btnOnlyCake').classList.toggle('active', m === 'only_cake');
+      calc();
+    }
+
+    function calc() {
+      const equiv = state.adults + (state.kids * 0.7);
+      const isFull = state.mode === 'full';
+      
+      const cakeGramsPerPerson = isFull ? 100 : 150;
+      const cakeKg = Math.round(((equiv * cakeGramsPerPerson) / 1000) * 10) / 10;
+      const portions = Math.round(equiv);
+
+      let shots = isFull ? Math.round(equiv * 2) : 0;
+      let alfajores = isFull ? Math.round(equiv * 1.5) : 0;
+
+      document.getElementById('cakeHero').innerText = cakeKg + ' kg';
+      document.getElementById('shotsHero').innerText = isFull ? shots + ' unidades' : 'No aplica';
+      document.getElementById('alfajoresHero').innerText = isFull ? alfajores + ' unidades' : 'No aplica';
+      document.getElementById('porcionesHero').innerText = portions + ' porciones';
+
+      document.getElementById('rowCake').innerText = cakeKg + ' kg de torta';
+      document.getElementById('rowShots').innerText = isFull ? `${shots} unidades (${Math.ceil(shots/12)} doc)` : '-';
+      document.getElementById('rowAlfajores').innerText = isFull ? `${alfajores} unidades (${Math.ceil(alfajores/12)} doc)` : '-';
+    }
+
+    function copyWhatsApp() {
+      const cake = document.getElementById('cakeHero').innerText;
+      const shots = document.getElementById('shotsHero').innerText;
+      const alfajores = document.getElementById('alfajoresHero').innerText;
+      const text = `🍰 *Pedido de Mesa Dulce & Torta para Evento*\n👥 Invitados: ${state.adults} adultos, ${state.kids} chicos\n\n🎂 *Detalle sugerido:*\n• Torta principal: *${cake}*\n• Shots / Mini postres: *${shots}*\n• Bocados secos / Alfajores: *${alfajores}*\n\nCalculado en https://sebiglesias.com.ar/mesa-dulce/`;
+      navigator.clipboard.writeText(text).then(() => alert('¡Presupuesto dulce copiado para WhatsApp!'));
+    }
+
+    calc();
+  </script>
+</body>
+</html>
